@@ -160,6 +160,13 @@ var sql_sel='SELECT * FROM balance where msisdn=?'
 
       });
     }
+
+    else{
+      var data={"remarks":"subscriber not found"};
+      res.statusCode=400;
+      res.json(data);
+      return;
+    }
     
 
     }
