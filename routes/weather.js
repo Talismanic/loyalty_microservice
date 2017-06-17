@@ -40,7 +40,10 @@ YQLP.exec("SELECT * FROM weather.forecast WHERE woeid=@woeid",{woeid:woeid}, fun
       output.push({'atmosphere':atmos});
       output.push({'forecast':forecast});
     }
+          res.statusCode(201)
           res.json(output);
+          return;
+
 }
 
             );
