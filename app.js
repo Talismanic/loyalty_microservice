@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var api  = require('./routes/api');
 var weather =require('./routes/weather');
 var test =require('./routes/test');
+var cric=require('./routes/cric');
 var app = express();
 
 // view engine setup
@@ -29,6 +30,9 @@ app.use('/users', users);
 app.use('/api',api);
 app.use('/weather',weather);
 app.use('/test',test);
+app.use('/cric',cric);
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

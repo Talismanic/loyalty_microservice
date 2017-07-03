@@ -8,7 +8,7 @@ var util = require('util');
 
 router.get('/:location', function(req, res, next) {
   var loc=req.params.location;
-  var location= loc+ ', bd';  // composing the location
+  var location= loc; // + ', bd';  // composing the location
   console.log(location);
 
 
@@ -19,7 +19,17 @@ YQLP.exec("SELECT woeid FROM geo.places(1) WHERE text=@text",{text:location}, fu
     if (error) {
         console.log('Something has messed up:', error);
     } else {
+       if(response.query.results){
+	console.log(response.query.results);
         woeid = response.query.results.place.woeid;
+	}
+	else
+	{
+	data={"response":"Location not fount"};
+	res.json(data);
+	return;
+		}
+	
     }
 
 //fetching weather data from Yahoo
@@ -51,3 +61,4 @@ YQLP.exec("SELECT * FROM weather.forecast WHERE woeid=@woeid",{woeid:woeid}, fun
 });
 
 module.exports = router;
+
