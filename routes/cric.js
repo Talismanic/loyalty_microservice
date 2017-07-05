@@ -42,6 +42,23 @@ for(i=0; i<len;i++)
 
 }
 
+
+var options_score={
+
+    url: "http://cricapi.com/api/cricketScore",
+    method: 'GET',
+    headers: headers,
+    qs: {'apikey':'5v4sbOEUYbWKRiRuT5aaJ1ba8vQ2','unique_id':match_id}
+}
+
+request(options_score, function(error,response, body){
+    var score=JSON.parse(body);
+    console.log(score);
+
+});
+
+
+
     res.send(data);
 
 
