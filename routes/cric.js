@@ -22,7 +22,9 @@ router.get('/', function(req, res, next){
 request(options_match, function(err, resp, body){
     matches=body;
 
-for( var item of matches){
+var data=JSON.parse(matches);
+
+for( var item of data){
     console.log(item.team-1);
 }
 
