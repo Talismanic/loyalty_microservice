@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require("request");
 var bodyParser = require('body-parser');
-
+var matches= null;
 var headers= {
     'Content-Type': 'application/json'
 }
@@ -20,11 +20,16 @@ var options_match={
 router.get('/', function(req, res, next){
 
 request(options_match, function(err, resp, body){
-   var matches=body;
+    matches=body;
+
+for( var item of matches){
+    console.log(item.team-1);
+}
+
     res.send(matches);
 
 
-    });
+});
 
 });
 
