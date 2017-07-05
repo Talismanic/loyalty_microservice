@@ -19,8 +19,8 @@ var options_match={
 
 router.get('/', function(req, res, next){
 
-request(options_match, function(err, resp, body){
-
+request(options, function(err, resp, body){
+/*
     for (var i=0; i<body.matches.length; i++){
         var matches=body.matches[i];
         var team01=matches.team-1;
@@ -30,13 +30,11 @@ request(options_match, function(err, resp, body){
 
 
     }
-
-    res.send(body);
-
-
-});
-
-
+*/
+   var matches=body;
+//   var match=matches.matches.length();
+//   console.log(match);
+    res.send(matches);
 
 
 });
