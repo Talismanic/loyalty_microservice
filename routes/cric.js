@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require("request");
 var bodyParser = require('body-parser');
-var matche_id= null;
+var match_id= null;
 var headers= {
     'Content-Type': 'application/json'
 }
@@ -34,10 +34,10 @@ console.log(len);
 
 for(i=0; i<len;i++)
 {
-    if ((data.matches[i]["team-1"]==="Surrey" || data.matches[i]["team-2"]==="Surrey") && data.matches[i].matchStarted==="true") 
+    if ((data.matches[i]["team-1"]==="Surrey" || data.matches[i]["team-2"]==="Surrey") && data.matches[i].matchStarted===true) 
   {
-     matche_id=data.matches[i].unique_id;
-    console.log(matche_id);
+     match_id=data.matches[i].unique_id;
+    console.log(match_id);
   }
 
 }
