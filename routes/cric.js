@@ -17,6 +17,14 @@ var options_match={
 }
 
 
+var options_score={
+
+    url: "http://cricapi.com/api/cricketScore",
+    method: 'GET',
+    headers: headers,
+    qs: {'apikey':'5v4sbOEUYbWKRiRuT5aaJ1ba8vQ2','unique_id':match_id}
+}
+
 router.get('/', function(req, res, next){
 
 request(options_match, function(err, resp, body){
@@ -43,13 +51,6 @@ for(i=0; i<len;i++)
 }
 
 
-var options_score={
-
-    url: "http://cricapi.com/api/cricketScore",
-    method: 'GET',
-    headers: headers,
-    qs: {'apikey':'5v4sbOEUYbWKRiRuT5aaJ1ba8vQ2','unique_id':match_id}
-}
 
 request(options_score, function(error,response, body){
     var score=JSON.parse(body);
@@ -66,5 +67,42 @@ request(options_score, function(error,response, body){
 
 });
 
+
+router.get('/upcoming/:country', function(req, res, next){
+
+var country=req.params.country;
+
+request(options_match,function(err,resp,body){
+    var data=JSON.parse(body);
+
+for(i=0; i<data.matches.length;i++)
+{
+    var count=0;
+    var match_id_ar=[];
+    var match_time=[];
+    if ((data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) && data.matches[i].matchStarted===false) 
+  {
+     match_id_ar[count]=data.matches[i].unique_id;
+     match_time[count]=data.matches[i].date;
+     count++;
+  }
+
+}
+
+if(count){
+    var output=JSON.stringify(match_time);
+
+}
+
+else
+var output={"remaks":"No match scheduled"};
+
+res.json(output);
+return;
+
+});
+
+
+});
 
 module.exports = router;
