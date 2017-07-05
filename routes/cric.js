@@ -24,9 +24,12 @@ request(options_match, function(err, resp, body){
 
 var data=JSON.parse(matches);
 
+var len=data.length();
+
+/*
 for( var item of data){
     console.log(item.team-1);
-}
+}*/
 
     res.send(matches);
 
