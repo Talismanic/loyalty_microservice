@@ -71,11 +71,12 @@ var country=req.params.country;
 
 request(options_match,function(err,resp,body){
     var data=JSON.parse(body);
+var count=0;
+   
 
 for(i=0; i<data.matches.length;i++)
 {
-    var count=0;
-    var match_id_ar=[];
+     var match_id_ar=[];
     var match_time=[];
 
     if(data.matches[i].matchStarted==false){
