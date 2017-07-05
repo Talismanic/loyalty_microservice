@@ -20,22 +20,11 @@ var options_match={
 router.get('/', function(req, res, next){
 
 request(options, function(err, resp, body){
-/*
-    for (var i=0; i<body.matches.length; i++){
-        var matches=body.matches[i];
-        var team01=matches.team-1;
-        var team02=matches.team-2;
-        console.log(team01);
-        console.log(team02);
-
-
-    }
-*/
    var matches=body;
-//   var match=matches.matches.length();
-//   console.log(match);
     res.send(matches);
 
+
+    });
 
 });
 
