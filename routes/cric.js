@@ -8,7 +8,7 @@ var headers= {
 }
 
 
-var options={
+var options_match={
 
     url: "http://cricapi.com/api/matches",
     method: 'GET',
@@ -19,7 +19,7 @@ var options={
 
 router.get('/', function(req, res, next){
 
-request(options, function(err, resp, body){
+request(options_match, function(err, resp, body){
 
     for (var i=0; i<body.matches.length; i++){
         var matches=body.matches[i];
