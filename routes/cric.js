@@ -72,13 +72,13 @@ var country=req.params.country;
 request(options_match,function(err,resp,body){
     var data=JSON.parse(body);
 var count=0;
+var match_id_ar=[];
+var match_time=[];
    
 
 for(i=0; i<data.matches.length;i++)
 {
-     var match_id_ar=[];
-    var match_time=[];
-
+   
     if(data.matches[i].matchStarted==false){
 
     if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
