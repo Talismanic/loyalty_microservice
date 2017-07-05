@@ -24,13 +24,21 @@ request(options_match, function(err, resp, body){
 
 var data=JSON.parse(matches);
 
-var len=data.length;
+var len=data.matches.length;
 console.log(len);
 
-/*
-for( var item of data){
-    console.log(item.team-1);
-}*/
+var len=data.matches.length;
+console.log(data.matches[2]);
+console.log(len);
+
+
+for(i=0; i<len;i++)
+{
+    if (data.matches[i]["team-1"]==="Surrey")
+    console.log(data.matches[i].unique_id);
+
+
+}
 
     res.send(matches);
 
