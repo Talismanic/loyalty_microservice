@@ -24,7 +24,8 @@ request(options_match, function(err, resp, body){
 
 var data=JSON.parse(matches);
 
-var len=data.length();
+var len=data.length;
+console.log(len);
 
 /*
 for( var item of data){
