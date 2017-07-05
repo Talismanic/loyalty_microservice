@@ -36,9 +36,6 @@ var len=data.matches.length;
 console.log(len);
 
 var len=data.matches.length;
-console.log(data.matches[2]);
-console.log(len);
-
 
 for(i=0; i<len;i++)
 {
@@ -80,12 +77,18 @@ for(i=0; i<data.matches.length;i++)
     var count=0;
     var match_id_ar=[];
     var match_time=[];
-    if ((data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) && data.matches[i].matchStarted===false) 
+
+    if(data.matches[i].matchStarted==false){
+
+    if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
   {
      match_id_ar[count]=data.matches[i].unique_id;
      match_time[count]=data.matches[i].date;
      count++;
   }
+
+    }
+
 
 }
 
