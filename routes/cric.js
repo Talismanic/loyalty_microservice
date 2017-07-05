@@ -35,9 +35,10 @@ console.log(len);
 for(i=0; i<len;i++)
 {
     if ((data.matches[i]["team-1"]==="Surrey" || data.matches[i]["team-2"]==="Surrey") && data.matches[i].matchStarted==="true") 
-    matche_id=data.matche_id[i].unique_id;
+  {
+     matche_id=data.matches[i].unique_id;
     console.log(matche_id);
-
+  }
 
 }
 
