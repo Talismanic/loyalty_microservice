@@ -18,13 +18,6 @@ var options_match={
 }
 
 
-var options_score={
-
-    url: "http://cricapi.com/api/cricketScore",
-    method: 'GET',
-    headers: headers,
-    qs: {'apikey':'5v4sbOEUYbWKRiRuT5aaJ1ba8vQ2','unique_id':match_id}
-}
 
 router.get('/', function(req, res, next){
 
@@ -47,17 +40,6 @@ for(i=0; i<len;i++)
   }
 
 }
-
-
-
-request(options_score, function(error,response, body){
-    var score=JSON.parse(body);
-    console.log(score);
-
-});
-
-
-
     res.send(data);
 
 
@@ -127,9 +109,9 @@ for(i=0; i<data.matches.length;i++)
 
     if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
       {
-        match_id=data.matches[i].unique_id;
-        console.log(match_id); 
-          break;
+        var id=data.matches[i].unique_id;
+        console.log(id); 
+        break;
 
       }  
   
@@ -139,16 +121,16 @@ for(i=0; i<data.matches.length;i++)
 
 }
 
-if(match_id){
+if(id){
     var options_score={
 
     url: "http://cricapi.com/api/cricketScore",
     method: 'GET',
     headers: headers,
-    qs: {'apikey':'5v4sbOEUYbWKRiRuT5aaJ1ba8vQ2','unique_id':match_id}
+    qs: {'apikey':'5v4sbOEUYbWKRiRuT5aaJ1ba8vQ2','unique_id':id}
 }
 
-    console.log(match_id);
+
     request(options_score, function(error,response, body){
     var score=JSON.parse(body);
     res.json(score);
