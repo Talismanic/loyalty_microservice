@@ -74,7 +74,7 @@ request(options_match,function(err,resp,body){
     var data=JSON.parse(body);
     var count=0;
     var output=[];
-    
+
 for(i=0; i<data.matches.length;i++)
 {
     if(data.matches[i].matchStarted==false){
@@ -105,5 +105,71 @@ var output={"remaks":"No match scheduled"};
 
 
 });
+
+
+
+
+
+
+
+
+router.get('/ongoing/:country', function(req, res, next){
+
+var country=req.params.country;
+
+request(options_match,function(err,resp,body){
+    var data=JSON.parse(body);
+    var output=[];
+    
+for(i=0; i<data.matches.length;i++)
+{
+    if(data.matches[i].matchStarted==true){
+
+    if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
+      {
+        match_id=data.matches[i].unique_id; 
+          break;
+
+      }  
+  
+
+    }
+
+
+}
+
+if(id){
+    request(options_score, function(error,response, body){
+    var score=JSON.parse(body);
+    res.json(score);
+    return;
+});
+
+}
+
+else
+var output={"remaks":"No match Ongoing"};
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
