@@ -117,7 +117,7 @@ router.get('/ongoing/:country', function(req, res, next){
 
 var country=req.params.country;
 
-request(options_score,function(err,resp,body){
+request(options_match,function(err,resp,body){
     var data=JSON.parse(body);
     var output=[];
     
@@ -140,6 +140,14 @@ for(i=0; i<data.matches.length;i++)
 }
 
 if(match_id){
+    var options_score={
+
+    url: "http://cricapi.com/api/cricketScore",
+    method: 'GET',
+    headers: headers,
+    qs: {'apikey':'5v4sbOEUYbWKRiRuT5aaJ1ba8vQ2','unique_id':match_id}
+}
+
     console.log(match_id);
     request(options_score, function(error,response, body){
     var score=JSON.parse(body);
