@@ -84,9 +84,9 @@ for(i=0; i<data.matches.length;i++)
     var team01=data.matches[i]["team-1"];
     var team02=data.matches[i]["team-2"];
     var match_time=data.matches[i].data;
-    output.push({'team1':team01});
-    output.push({'team2':team02});
-    output.push({'date':match_time});
+    output.push(team01);
+    output.push(team02);
+    output.push(match_time);
      count++;
   }
 
@@ -96,6 +96,7 @@ for(i=0; i<data.matches.length;i++)
 }
 
 if(count){
+    var ou=JSON.stringify(output);
     res.json(output);
     return;
 }
