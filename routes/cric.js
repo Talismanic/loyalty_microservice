@@ -19,24 +19,19 @@ var options_match={
 
 
 
+//List of all the matches
+
 router.get('/', function(req, res, next){
 
 request(options_match, function(err, resp, body){
-var    matches=body;
 
-var data=JSON.parse(matches);
+var data=JSON.parse(body);
 
-var len=data.matches.length;
-console.log(len);
-
-var len=data.matches.length;
-
-for(i=0; i<len;i++)
+for(i=0; i<data.matches.length;i++)
 {
     if ((data.matches[i]["team-1"]==="Surrey" || data.matches[i]["team-2"]==="Surrey") && data.matches[i].matchStarted===true) 
   {
      match_id=data.matches[i].unique_id;
-    console.log(match_id);
   }
 
 }
@@ -46,6 +41,8 @@ for(i=0; i<len;i++)
 });
 
 });
+
+//Getting the upcoming match list specified by country name
 
 
 router.get('/upcoming/:country', function(req, res, next){
@@ -82,17 +79,15 @@ if(count){
 else
 var output={"remaks":"No match scheduled"};
 
+});
 
 });
 
 
-});
 
 
 
-
-
-
+//getting the score of the ongoing matches specified by country name
 
 
 router.get('/ongoing/:country', function(req, res, next){
@@ -152,21 +147,6 @@ else
 
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 module.exports = router;
