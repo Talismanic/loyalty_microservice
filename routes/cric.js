@@ -73,7 +73,7 @@ request(options_match,function(err,resp,body){
     var data=JSON.parse(body);
 var count=0;
 var output=[];
-
+var all_match=[];
 for(i=0; i<data.matches.length;i++)
 {
    
@@ -87,6 +87,9 @@ for(i=0; i<data.matches.length;i++)
     output.push(team01);
     output.push(team02);
     output.push(match_time);
+    var matou=JSON.stringify(output);
+    all_match.push({'match':matou});
+
      count++;
   }
 
@@ -97,7 +100,7 @@ for(i=0; i<data.matches.length;i++)
 
 if(count){
     var ou=JSON.stringify(output);
-    res.json(output);
+    res.json(all_match);
     return;
 }
 
