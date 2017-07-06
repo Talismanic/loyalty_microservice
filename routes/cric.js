@@ -72,11 +72,10 @@ var country=req.params.country;
 request(options_match,function(err,resp,body){
     var data=JSON.parse(body);
 var count=0;
-var output=[];
 var all_match=[];
 for(i=0; i<data.matches.length;i++)
 {
-   
+   var output=[];
     if(data.matches[i].matchStarted==false){
 
     if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
@@ -84,11 +83,11 @@ for(i=0; i<data.matches.length;i++)
     var team01=data.matches[i]["team-1"];
     var team02=data.matches[i]["team-2"];
     var match_time=data.matches[i].date;
-    output.push(team01);
-    output.push(team02);
-    output.push(match_time);
-    var matou=JSON.stringify(output);
-    all_match.push({'match':matou});
+    output.push(team01, team02, match_time);
+    //output.push(team02);
+    //output.push(match_time);
+    //var matou=JSON.stringify(output);
+    all_match.push({'match':JSON.stringify(output)});
 
      count++;
   }
