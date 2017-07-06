@@ -11,6 +11,7 @@ var api  = require('./routes/api');
 var weather =require('./routes/weather');
 var test =require('./routes/test');
 var cric=require('./routes/cric');
+var news=require('./routes/news');
 var app = express();
 
 // view engine setup
@@ -31,6 +32,8 @@ app.use('/api',api);
 app.use('/weather',weather);
 app.use('/test',test);
 app.use('/cric',cric);
+app.use('/news',news);
+
 
 
 // catch 404 and forward to error handler
