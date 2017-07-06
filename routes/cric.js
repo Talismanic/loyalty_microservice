@@ -127,7 +127,8 @@ for(i=0; i<data.matches.length;i++)
 
     if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
       {
-        match_id=data.matches[i].unique_id; 
+        match_id=data.matches[i].unique_id;
+        console.log(match_id); 
           break;
 
       }  
@@ -139,6 +140,7 @@ for(i=0; i<data.matches.length;i++)
 }
 
 if(match_id){
+    console.log(match_id);
     request(options_score, function(error,response, body){
     var score=JSON.parse(body);
     res.json(score);
