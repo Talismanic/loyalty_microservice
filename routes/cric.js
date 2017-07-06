@@ -138,7 +138,7 @@ for(i=0; i<data.matches.length;i++)
 
 }
 
-if(id){
+if(match_id){
     request(options_score, function(error,response, body){
     var score=JSON.parse(body);
     res.json(score);
