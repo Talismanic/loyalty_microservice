@@ -86,7 +86,7 @@ for(i=0; i<data.matches.length;i++)
     var match_time=data.matches[i].data;
     output.push({'team1':team01});
     output.push({'team2':team02});
-    output.push({'date':date});
+    output.push({'date':match_time});
      count++;
   }
 
