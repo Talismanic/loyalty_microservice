@@ -117,7 +117,7 @@ router.get('/ongoing/:country', function(req, res, next){
 
 var country=req.params.country;
 
-request(options_match,function(err,resp,body){
+request(options_score,function(err,resp,body){
     var data=JSON.parse(body);
     var output=[];
     
