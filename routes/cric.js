@@ -102,6 +102,7 @@ var country=req.params.country;
 request(options_match,function(err,resp,body){
     var data=JSON.parse(body);
     var output=[];
+    var id=0;
     
 for(i=0; i<data.matches.length;i++)
 {
@@ -109,7 +110,7 @@ for(i=0; i<data.matches.length;i++)
 
     if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
       {
-        var id=data.matches[i].unique_id;
+        id=data.matches[i].unique_id;
         console.log(id); 
         break;
 
@@ -117,8 +118,6 @@ for(i=0; i<data.matches.length;i++)
   
 
     }
-    else
-        var id=0;
 
 
 
@@ -143,8 +142,11 @@ if(id){
 }
 
 else
-var output={"remaks":"No match Ongoing"};
-
+{
+    var rem={"remaks":"No match Ongoing"};
+    res.json(rem);
+    return;
+}
 
 });
 
