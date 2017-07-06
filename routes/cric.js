@@ -72,9 +72,7 @@ var country=req.params.country;
 request(options_match,function(err,resp,body){
     var data=JSON.parse(body);
 var count=0;
-var match_id_ar=[];
-var match_time=[];
-   
+var output=[];
 
 for(i=0; i<data.matches.length;i++)
 {
@@ -83,8 +81,12 @@ for(i=0; i<data.matches.length;i++)
 
     if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
   {
-     match_id_ar[count]=data.matches[i].unique_id;
-     match_time[count]=data.matches[i].date;
+    var team01=data.matches[i]["team-1"];
+    var team02=data.matches[i]["team-2"];
+    var match_time=data.matches[i].data;
+    output.push({'team1':team01});
+    output.push({'team2':team02});
+    output.push({'date':date});
      count++;
   }
 
@@ -94,15 +96,13 @@ for(i=0; i<data.matches.length;i++)
 }
 
 if(count){
-    var output=JSON.stringify(match_time);
-
+    res.json(output);
+    return;
 }
 
 else
 var output={"remaks":"No match scheduled"};
 
-res.json(output);
-return;
 
 });
 
