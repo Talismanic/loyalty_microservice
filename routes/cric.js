@@ -68,28 +68,19 @@ request(options_score, function(error,response, body){
 router.get('/upcoming/:country', function(req, res, next){
 
 var country=req.params.country;
-
+var output=[];
 request(options_match,function(err,resp,body){
     var data=JSON.parse(body);
-var count=0;
-var all_match=[];
+    var count=0;
 for(i=0; i<data.matches.length;i++)
 {
-   var output=[];
     if(data.matches[i].matchStarted==false){
 
     if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
   {
-    var team01=data.matches[i]["team-1"];
-    var team02=data.matches[i]["team-2"];
-    var match_time=data.matches[i].date;
-    output.push(team01, team02, match_time);
-    //output.push(team02);
-    //output.push(match_time);
-    //var matou=JSON.stringify(output);
-    all_match.push({'match':JSON.stringify(output)});
-
-     count++;
+      
+    output.push({'match':data.matches[i]});
+    count++;
   }
 
     }
@@ -98,8 +89,8 @@ for(i=0; i<data.matches.length;i++)
 }
 
 if(count){
-    var ou=JSON.stringify(output);
-    res.json(all_match);
+
+    res.json(output);
     return;
 }
 
