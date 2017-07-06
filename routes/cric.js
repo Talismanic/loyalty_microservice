@@ -69,18 +69,20 @@ request(options_score, function(error,response, body){
 router.get('/upcoming/:country', function(req, res, next){
 
 var country=req.params.country;
-var output=[];
+
 request(options_match,function(err,resp,body){
     var data=JSON.parse(body);
     var count=0;
+    var output=[];
+    
 for(i=0; i<data.matches.length;i++)
 {
     if(data.matches[i].matchStarted==false){
 
     if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
   {
-      
-    output.push({'match':data.matches[i]});
+    var mat=data.matches[i]; 
+    output.push({'match':mat});
     count++;
   }
 
