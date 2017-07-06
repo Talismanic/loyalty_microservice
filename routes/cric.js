@@ -83,7 +83,7 @@ for(i=0; i<data.matches.length;i++)
   {
     var team01=data.matches[i]["team-1"];
     var team02=data.matches[i]["team-2"];
-    var match_time=data.matches[i].data;
+    var match_time=data.matches[i].date;
     output.push(team01);
     output.push(team02);
     output.push(match_time);
