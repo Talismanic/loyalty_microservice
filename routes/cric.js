@@ -78,43 +78,40 @@ db.query(sql_ins,ins_data,function(err,result){
     }
         
     else
-        console.log('Inserted in transaction history')
+        {
+            request(options_match,function(err,resp,body){
+                var data=JSON.parse(body);
+                var count=0;
+                var output=[];
+                for(i=0; i<data.matches.length;i++)
+                    {
+                        if(data.matches[i].matchStarted==false){
+                            if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
+                                {
+                                    var mat=data.matches[i]; 
+                                    output.push({'match':mat});
+                                    count++;
+                                }
+                            }
+                            else
+                                continue;
+                        }
+                        if(count){
+                            res.json(output);
+                            return;
+                        }
+                        else
+                            var output={"remaks":"No match scheduled"};
+                    });
+
+        }
+
 
 });
 
 
 
-request(options_match,function(err,resp,body){
-    var data=JSON.parse(body);
-    var count=0;
-    var output=[];
 
-for(i=0; i<data.matches.length;i++)
-{
-    if(data.matches[i].matchStarted==false){
-
-    if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
-  {
-    var mat=data.matches[i]; 
-    output.push({'match':mat});
-    count++;
-  }
-
-    }
-
-
-}
-
-if(count){
-
-    res.json(output);
-    return;
-}
-
-else
-var output={"remaks":"No match scheduled"};
-
-});
 
 });
 
