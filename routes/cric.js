@@ -67,8 +67,14 @@ var ins_data=[
 
 db.query(sql_ins,ins_data,function(err,result){
 
-    if(err)
+    if(err){
         console.log(err);
+        console.log(dateTime.create())
+
+
+
+    }
+        
     else
         console.log('Inserted in transaction history')
 
