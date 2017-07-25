@@ -3,6 +3,9 @@ var router = express.Router();
 var request = require("request");
 var bodyParser = require('body-parser');
 var util = require('util');
+var dateTime = require('node-datetime');
+
+
 var match_id= null;
 var headers= {
     'Content-Type': 'application/json'
@@ -52,13 +55,13 @@ router.get('/upcoming/:country', function(req, res, next){
 var country=req.params.country;
 var api_name='upcomingMatches';
 var api_platform='cricApi';
-var date= new Date();
+
 
 var sql_ins='INSERT INTO transaction_history (api_name,api_platform,initiation_time) VALUES (?,?,?)';
 var ins_data=[
     api_name,
     api_platform,
-    date.getHours()
+    dateTime.create()
     
 ];
 
