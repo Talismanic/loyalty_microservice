@@ -8,6 +8,8 @@ var headers= {
     'Content-Type': 'application/json'
 }
 
+var db=require('../dbconnect')
+
 
 var options_match={
 
@@ -48,6 +50,26 @@ for(i=0; i<data.matches.length;i++)
 router.get('/upcoming/:country', function(req, res, next){
 
 var country=req.params.country;
+var api_name='upcomingMatches';
+var api_platform='cricApi';
+var sql_ins='INSERT INTO transaction_history (api_name,api_platform,initiation_time) VALUES (?,?,?)';
+var ins_data=[
+    api_name,
+    api_platform,
+    Math.floor(Date.now() /1000)
+
+];
+
+db.query(sql_ins,ins_data,function(err,result){
+
+    if(err)
+        console.log(err);
+    else
+        console.log('Inserted in transaction history')
+
+});
+
+
 
 request(options_match,function(err,resp,body){
     var data=JSON.parse(body);
