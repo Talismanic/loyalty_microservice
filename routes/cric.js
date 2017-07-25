@@ -55,13 +55,15 @@ router.get('/upcoming/:country', function(req, res, next){
 var country=req.params.country;
 var api_name='upcomingMatches';
 var api_platform='cricApi';
+var dt = dateTime.create();
+var formatted = dt.format('Y-m-d H:M:S');
 
 
 var sql_ins='INSERT INTO transaction_history (api_name,api_platform,initiation_time) VALUES (?,?,?)';
 var ins_data=[
     api_name,
     api_platform,
-    dateTime.create()
+    formatted
     
 ];
 
