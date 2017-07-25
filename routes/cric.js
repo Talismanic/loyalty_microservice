@@ -56,7 +56,7 @@ var sql_ins='INSERT INTO transaction_history (api_name,api_platform,initiation_t
 var ins_data=[
     api_name,
     api_platform,
-    Math.floor(Date.now() /1000)
+    Date().toISOString()
 
 ];
 
