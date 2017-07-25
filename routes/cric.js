@@ -85,7 +85,8 @@ db.query(sql_ins,ins_data,function(err,result){
                 var output=[];
                 for(i=0; i<data.matches.length;i++)
                     {
-                        if(data.matches[i].matchStarted==false){
+                        var isStarted=data.matches[i].matchStarted
+                        if(isStarted==false && isStarted!=null){
                             if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
                                 {
                                     var mat=data.matches[i]; 
