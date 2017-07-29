@@ -7,6 +7,8 @@ var dateTime = require('node-datetime');
 var db=require('../dbconnect');
 var data=require('csv-mysql');
 var csvParser = require('csv-parse');
+var fs = require("fs");
+
 
 fs.readFile("usageHistory.csv", {
   encoding: 'utf-8'
