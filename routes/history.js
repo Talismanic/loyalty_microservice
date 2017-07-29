@@ -8,7 +8,7 @@ var dateTime = require('node-datetime');
 var cm=require('csv-mysql');
 var csvParser = require('csv-parse');
 var fs = require("fs");
-
+var data=null;
 
 fs.readFile("usageHistory.csv", {
   encoding: 'utf-8'
@@ -16,8 +16,11 @@ fs.readFile("usageHistory.csv", {
   if (err) {
     console.log(err);
   }
- else
-    console.log(csvData);
+ else{
+     console.log(csvData);
+     data=csvData;
+ }
+    
 });
 
 
@@ -40,7 +43,7 @@ var options = {
 
 
 
-cm.import(options, csvData, function(err, rows){
+cm.import(options, data, function(err, rows){
 	if( err===null )err = false;
 	expect(err).to.equal(false);
 	done();
