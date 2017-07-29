@@ -40,7 +40,7 @@ var options = {
 
 
 
-cm.import(options, data, function(err, rows){
+cm.import(options, csvData, function(err, rows){
 	if( err===null )err = false;
 	expect(err).to.equal(false);
 	done();
