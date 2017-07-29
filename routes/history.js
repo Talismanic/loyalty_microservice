@@ -18,32 +18,26 @@ fs.readFile("usageHistory.csv", {
   }
  else{
      console.log(csvData);
-     data=csvData;
- }
-    
-});
+//     data=csvData;
 
-
-var options = {
-	mysql: {
-        host:'localhost',
-        user:'root',
-        password:'mehedi123',
-        database:'loyalty',
-        port: 3006
-	},
-	csv: {
-        comment: '#',
-        quote: '"'
-    },
-	table: 'history'
-}
+     var options = {
+         mysql: {
+             host:'localhost',
+             user:'root',
+             password:'mehedi123',
+             database:'loyalty',
+             port: 3006
+            },
+        csv: {
+            comment: '#',
+            quote: '"'
+        },
+        table: 'history'
+    }
 
 
 
-
-
-cm.import(options, data, function(err, rows){
+cm.import(options, csvData, function(err, rows){
     if(err)
         console.log(err);
 
@@ -53,5 +47,11 @@ cm.import(options, data, function(err, rows){
 
 
 console.log(data);
+
+ }
+    
+});
+
+
 
 //module.exports = router;
