@@ -1,5 +1,5 @@
 transaction_id,transaction_type,transaction_mode,msisdn,other_party_number,start_time,actual_consumption,consumption_unit,charges_in_bdt
-1,"VOICE","OUT","8801711085812","8801711085811","2017-06-12 01:30:12","30",SEC","0.8"
+1,"VOICE","OUT","8801711085812","8801711085811",2017-06-12 01:30:12,30,"SEC",0.8
 2,"DATA","BOTH","8801711085812","0","2017-06-12 01:45:20","34701","KB","17.5"
 3,"VOICE","IN","8801711085812","8801711085813","2017-06-12 02:30:12","30","SEC","0"
 4,"SMS","OUT","8801711085812","8801754957794","2017-06-12 02:50:32","1","NUM","0.5"
