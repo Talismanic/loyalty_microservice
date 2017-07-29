@@ -16,16 +16,8 @@ fs.readFile("usageHistory.csv", {
   if (err) {
     console.log(err);
   }
-
-  csvParser(csvData, {
-    delimiter: ','
-  }, function(err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(csvData);
-    }
-  });
+ else
+    console.log(csvData);
 });
 
 
