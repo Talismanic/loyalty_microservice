@@ -23,7 +23,7 @@ fs.readFile("usageHistory.csv", {
     if (err) {
       console.log(err);
     } else {
-      console.log(data);
+      console.log(csvData);
     }
   });
 });
