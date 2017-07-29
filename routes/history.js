@@ -46,10 +46,12 @@ var options = {
 cm.import(options, data, function(err, rows){
     if(err)
         console.log(err);
+
     else
         console.log(rows);
 });
 
 
+console.log(data);
 
 //module.exports = router;
