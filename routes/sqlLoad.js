@@ -1,14 +1,9 @@
 var express = require('express');
-var router = express.Router();
-var request = require("request");
 var bodyParser = require('body-parser');
-var util = require('util');
 var dateTime = require('node-datetime');
-//var db=require('../dbconnect');
 var cm=require('csv-mysql');
 var csvParser = require('csv-parse');
 var fs = require("fs");
-var data=null;
 
 fs.readFile("usageHistory.csv", {
   encoding: 'utf-8'
@@ -51,7 +46,3 @@ console.log(data);
  }
     
 });
-
-
-
-//module.exports = router;
