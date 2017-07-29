@@ -6,16 +6,27 @@ var util = require('util');
 var dateTime = require('node-datetime');
 var db=require('../dbconnect');
 var data=require('csv-mysql');
+var csvParser = require('csv-parse');
 
-router.get('/',function(req,res,next){
+fs.readFile("usageHistory.csv", {
+  encoding: 'utf-8'
+}, function(err, csvData) {
+  if (err) {
+    console.log(err);
+  }
 
-
-
+  csvParser(csvData, {
+    delimiter: ','
+  }, function(err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(data);
+    }
+  });
 });
 
 
 
 
-
-
-module.exports = router;
+//module.exports = router;
