@@ -36,7 +36,7 @@ var options = {
         comment: '#',
         quote: '"'
     },
-	table: 'histroy'
+	table: 'history'
 }
 
 
