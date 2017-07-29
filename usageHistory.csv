@@ -1,3 +1,4 @@
+transaction_id,transaction_type,transaction_mode,msisdn,other_party_number,start_time,actual_consumption,consumption_unit,charges_in_bdt
 1,VOICE,OUT,8801711085812,8801711085811,6/29/2017 8:57,45,SEC,0.8
 2,DATA,BOTH,8801711085812,NA,6/29/2017 9:05,34701,KB,17.5
 3,VOICE,IN,8801711085812,8801711085813,6/29/2017 9:30,30,SEC,0
