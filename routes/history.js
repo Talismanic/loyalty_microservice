@@ -44,9 +44,10 @@ var options = {
 
 
 cm.import(options, data, function(err, rows){
-	if( err===null )err = false;
-	expect(err).to.equal(false);
-	done();
+    if(err)
+        console.log(err);
+    else
+        console.log(rows);
 });
 
 
