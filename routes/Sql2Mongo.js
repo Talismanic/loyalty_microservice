@@ -19,7 +19,7 @@ mnDB.connect(URL, function(err) {
             console.log(err);
           else{
               doc=docs;
-              console.log(doc);
+             // console.log(doc);
           }
             
       });
@@ -33,6 +33,8 @@ mnDB.connect(URL, function(err) {
       });
 */
 
+      console.log(doc);
+      
       collection.find().toArray(function(err,docs){
           console.log(docs[0]);
           return
