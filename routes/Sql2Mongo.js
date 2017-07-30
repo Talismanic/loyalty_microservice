@@ -14,38 +14,25 @@ mnDB.connect(URL, function(err) {
   } else {
       var collection = mnDB.get().collection('cdrHistory');
 
-      loadFromMySql(msisdn,function(err,docs){
+      loadFromMySql(msisdn,function(err,doc){
           if(err)
             console.log(err);
           else{
-              doc=docs;
               console.log(doc);
-              console.log(docs);
-             /*
+              //console.log(docs);
+             
              collection.insert(doc, function(err, res){
                  if(err)
                     console.log(err);
                  else
                     console.log(res);
-                });*/
+                });
+                collection.find().toArray(function(err,docs){
+                    console.log(docs);
+                    return
+                })
             }
         });
-      //console.log(doc);
-/*      
-      collection.insert(doc, function(err, res){
-          if(err)
-            console.log(err);
-          else
-            console.log(res);
-      });
-*/
-
-      console.log(doc);
-
-      collection.find().toArray(function(err,docs){
-          console.log(docs);
-          return
-      })
  
   }
 });
