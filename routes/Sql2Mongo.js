@@ -20,8 +20,8 @@ mnDB.connect(URL, function(err) {
           else{
               console.log(doc);
               //console.log(docs);
-             
-             collection.insert(doc, function(err, res){
+             var hist=JSON.parse(doc);
+             collection.insert(hist, function(err, res){
                  if(err)
                     console.log(err);
                  else
