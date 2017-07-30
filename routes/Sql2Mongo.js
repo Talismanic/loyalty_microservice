@@ -12,12 +12,13 @@ function loadFromMySql(){
     db.query(stmt,msisdn, function(err, res){
         if(err)
             throw err;
-        else 
-            console.log(JSON.stringify(res));
+        else{
+            var data=JSON.stringify(res)
+            console.log(data);
 
+        } 
 
     });
-
 
 }
 
