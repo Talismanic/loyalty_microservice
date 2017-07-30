@@ -14,11 +14,12 @@ function loadFromMySql(){
             throw err;
         else{
             var data=JSON.stringify(res)
+            data.Newfield='msisdn';
             var output=[];
             output.push({'msisdn':msisdn});
             output.push({'records':data});
-            console.log(output);
-
+            data["msisdn"]=msisdn;
+            console.log(data);
         } 
 
     });
