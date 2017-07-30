@@ -17,7 +17,7 @@ function loadFromMySql(ms){
             var data=JSON.stringify(res)
             output.push({'msisdn':msisdn});
             output.push({'records':data});
-            console.log(data);
+            //console.log(data);
             
         } 
 
