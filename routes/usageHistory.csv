@@ -1,5 +1,5 @@
 transaction_id,transaction_type,transaction_mode,msisdn,other_party_number,start_time,actual_consumption,consumption_unit,charges_in_bdt
-8,"VOICE","OUT","01711085815","01711085811","2017-06-12 02:33:12,30","SEC","0.8"
+8,"VOICE","OUT","01711085815","01711085811","2017-06-12 02:33:12","30","SEC","0.8"
 9,"DATA","BOTH","01711085815","0","2017-06-12 03:45:20","34701","KB","17.5"
 10,"VOICE","IN","01711085815","01711085813","2017-06-12 03:00:12","30","SEC","0"
 11,"SMS","OUT","01711085815","01754957794","2017-06-12 03:50:32","1","NUM","0.5"
