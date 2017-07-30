@@ -24,7 +24,11 @@ function loadFromMySql(){
 
 
 MongoClient.connect(URL, function(err, db) {
-  if (err) return
+  if (err){
+      console.log(err);
+      return
+
+  } 
 
   var collection = db.collection('cdrHistory')
   collection.insert({"msisdn": msisdn, "records":{"transaction_type":"VOICE","transaction_mode":"OUT","other_party_number":"01711085811","start_time":"2017-06-12 02:33:12","actual_consumption":"30","consumption_unit":"SEC","charges_in_bdt":"0.8"}}, function(err, result) {
