@@ -42,7 +42,7 @@ mnDB.connect(URL, function(err) {
       console.log(doc);
 
       collection.find().toArray(function(err,docs){
-          console.log(docs[0]);
+          console.log(docs[1]);
           return
       })
  
