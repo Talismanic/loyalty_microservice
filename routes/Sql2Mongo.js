@@ -21,7 +21,7 @@ function loadFromMySql(){
 
 }
 
-//loadFromMySql();
+loadFromMySql();
 
 
 mnDB.connect(URL, function(err) {
