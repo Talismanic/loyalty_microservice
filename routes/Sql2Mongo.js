@@ -17,7 +17,8 @@ function loadFromMySql(ms){
             var output=[];
             output.push({'msisdn':msisdn});
             output.push({'records':data});
-            //console.log(data);
+            data= JSON.stringify(output);
+            console.log(data);
         } 
 
     });
