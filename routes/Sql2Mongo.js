@@ -7,21 +7,21 @@ var msisdn="01711085812";
 var mnDB=require('../mongoConnect');
 
 
-function loadFromMySql(){
+function loadFromMySql(ms){
     var stmt="SELECT transaction_type,transaction_mode,other_party_number,start_time,actual_consumption,consumption_unit,charges_in_bdt FROM history where msisdn=?";
-    db.query(stmt,msisdn, function(err, res){
+    db.query(stmt,ms, function(err, res){
         if(err)
             throw err;
         else{
             var data=JSON.stringify(res)
-            data.msisdn=msisdn;
-            var output={"msisdn":msisdn};
-            //output.push({'msisdn':msisdn});
+            var output=[];
+            output.push({'msisdn':msisdn});
             output.push({'records':data});
-            console.log(data);
+            //console.log(data);
         } 
 
     });
+    return data;
 
 }
 
@@ -42,6 +42,6 @@ mnDB.connect(URL, function(err) {
 })
 
 
-loadFromMySql();
+loadFromMySql(msisdn);
 
 //module.exports = router;
