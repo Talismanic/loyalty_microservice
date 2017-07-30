@@ -22,7 +22,7 @@ function loadFromMySql(ms){
         } 
 
     });
-    return data;
+    //return data;
 
 }
 
