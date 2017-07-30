@@ -24,14 +24,14 @@ mnDB.connect(URL, function(err) {
             
       });
       //console.log(doc);
-      
+/*      
       collection.insert(doc, function(err, res){
           if(err)
             console.log(err);
           else
             console.log(res);
       });
-
+*/
 
       collection.find().toArray(function(err,docs){
           console.log(docs[0]);
