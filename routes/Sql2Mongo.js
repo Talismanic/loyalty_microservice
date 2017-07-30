@@ -14,7 +14,10 @@ function loadFromMySql(){
             throw err;
         else{
             var data=JSON.stringify(res)
-            console.log(data);
+            var output=[];
+            output.push({'msisdn':msisdn});
+            output.push({'records':data});
+            console.log(output);
 
         } 
 
