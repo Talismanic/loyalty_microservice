@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var db= require('../dbconnect');
-var MongoClient = require('mongodb').MongoClient
-var URL = 'mongodb://localhost:27017/cdr'
+var MongoClient = require('mongodb').MongoClient;
+var URL = 'mongodb://localhost:27017/cdr';
 var msisdn="01711085812";
 var mnDB=require('../mongoConnect');
 
@@ -34,6 +34,17 @@ mnDB.connect(URL, function(err) {
     process.exit(1);
   } else {
       var collection = mnDB.get().collection('cdrHistory');
+
+      var doc=loadFromMySql(msisdn);
+      
+      collection.insert(doc).then(function(err, res){
+          if(err)
+            console.log(err);
+          else
+            console.log(res);
+      });
+
+
       collection.find().toArray(function(err,docs){
           console.log(docs[0]);
           return
@@ -43,6 +54,6 @@ mnDB.connect(URL, function(err) {
 })
 
 
-loadFromMySql(msisdn);
+//loadFromMySql(msisdn);
 
 //module.exports = router;
