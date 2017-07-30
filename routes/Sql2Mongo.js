@@ -36,6 +36,7 @@ mnDB.connect(URL, function(err) {
       var collection = mnDB.get().collection('cdrHistory');
 
       var doc=loadFromMySql(msisdn);
+      console.log(doc);
       
       collection.insert(doc).then(function(err, res){
           if(err)
