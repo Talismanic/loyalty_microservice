@@ -5,7 +5,7 @@ var MongoClient = require('mongodb').MongoClient;
 var URL = 'mongodb://localhost:27017/cdr';
 var msisdn="01711085812";
 var mnDB=require('../mongoConnect');
-
+var doc=null;
 
 mnDB.connect(URL, function(err) {
   if (err) {
@@ -14,14 +14,18 @@ mnDB.connect(URL, function(err) {
   } else {
       var collection = mnDB.get().collection('cdrHistory');
 
-      loadFromMySql(msisdn,function(err,doc){
+      loadFromMySql(msisdn,function(err,docs){
           if(err)
             console.log(err);
-          else
-            console.log(doc);
+          else{
+              doc=docs;
+              console.log(doc);
+
+          }
+            
       });
       //console.log(doc);
-      /*
+      
       collection.insert(doc).then(function(err, res){
           if(err)
             console.log(err);
@@ -29,7 +33,7 @@ mnDB.connect(URL, function(err) {
             console.log(res);
       });
 
-*/
+
       collection.find().toArray(function(err,docs){
           console.log(docs[0]);
           return
