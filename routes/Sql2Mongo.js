@@ -19,7 +19,8 @@ mnDB.connect(URL, function(err) {
             console.log(err);
           else{
               doc=docs;
-             // console.log(doc);
+              console.log(doc);
+              console.log(docs);
              /*
              collection.insert(doc, function(err, res){
                  if(err)
@@ -71,7 +72,7 @@ function loadFromMySql(ms,callback){
       //      console.log(data);
         
             output=JSON.stringify(output);
-            console.log(output);
+     //     console.log(output);
             callback(null,output);
             
         } 
