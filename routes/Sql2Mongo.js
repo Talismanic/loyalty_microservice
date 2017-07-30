@@ -8,7 +8,7 @@ var mnDB=require('../mongoConnect');
 
 
 function loadFromMySql(){
-    var stmt="SELECT * FROM history where msisdn=?";
+    var stmt="SELECT transaction_type,transaction_mode,other_party_number,start_time,actual_consumption,consumption_unit,charges_in_bdt FROM history where msisdn=?";
     db.query(stmt,msisdn, function(err, res){
         if(err)
             throw err;
