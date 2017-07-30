@@ -20,13 +20,12 @@ mnDB.connect(URL, function(err) {
           else{
               doc=docs;
               console.log(doc);
-
           }
             
       });
       //console.log(doc);
       
-      collection.insert(doc).then(function(err, res){
+      collection.insert(doc, function(err, res){
           if(err)
             console.log(err);
           else
