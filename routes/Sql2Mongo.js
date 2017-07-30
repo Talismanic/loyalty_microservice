@@ -13,7 +13,7 @@ function loadFromMySql(){
         if(err)
             throw err;
         else 
-            console.log(res);
+            console.log(JSON.stringify(res));
 
 
     });
@@ -21,7 +21,6 @@ function loadFromMySql(){
 
 }
 
-loadFromMySql();
 
 
 mnDB.connect(URL, function(err) {
@@ -38,5 +37,7 @@ mnDB.connect(URL, function(err) {
   }
 })
 
+
+loadFromMySql();
 
 //module.exports = router;
