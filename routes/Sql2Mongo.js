@@ -8,21 +8,21 @@ var mnDB=require('../mongoConnect');
 
 
 function loadFromMySql(ms){
+    var output=[];
     var stmt="SELECT transaction_type,transaction_mode,other_party_number,start_time,actual_consumption,consumption_unit,charges_in_bdt FROM history where msisdn=?";
     db.query(stmt,ms, function(err, res){
         if(err)
             throw err;
         else{
             var data=JSON.stringify(res)
-            var output={};
             output.push({'msisdn':msisdn});
             output.push({'records':data});
-            data= JSON.stringify(output);
             console.log(data);
+            return output;
         } 
 
     });
-    //return data;
+    return data;
 
 }
 
