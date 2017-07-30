@@ -41,7 +41,7 @@ cm.import(options, csvData, function(err, rows){
 });
 
 
-console.log(data);
+//console.log(data);
 
  }
     
