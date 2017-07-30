@@ -65,9 +65,10 @@ function loadFromMySql(ms,callback){
             var data=JSON.stringify(res)
             output.push({'msisdn':msisdn});
             output.push({'records':data});
-            console.log(data);
-            console.log(output);
+      //      console.log(data);
+        
             output=JSON.stringify(output);
+            console.log(output);
             callback(null,output);
             
         } 
