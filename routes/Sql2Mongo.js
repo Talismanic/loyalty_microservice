@@ -18,11 +18,11 @@ function loadFromMySql(ms){
             output.push({'msisdn':msisdn});
             output.push({'records':data});
             console.log(data);
-            return output;
+            
         } 
 
     });
-    return data;
+    return output;
 
 }
 
