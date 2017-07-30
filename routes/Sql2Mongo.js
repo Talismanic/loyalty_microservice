@@ -14,9 +14,14 @@ mnDB.connect(URL, function(err) {
   } else {
       var collection = mnDB.get().collection('cdrHistory');
 
-      var doc=loadFromMySql(msisdn);
-      console.log(doc);
-      
+      loadFromMySql(msisdn,function(err,doc){
+          if(err)
+            console.log(err);
+          else
+            console.log(doc);
+      });
+      //console.log(doc);
+      /*
       collection.insert(doc).then(function(err, res){
           if(err)
             console.log(err);
@@ -24,7 +29,7 @@ mnDB.connect(URL, function(err) {
             console.log(res);
       });
 
-
+*/
       collection.find().toArray(function(err,docs){
           console.log(docs[0]);
           return
@@ -39,7 +44,7 @@ mnDB.connect(URL, function(err) {
 
 //loading data from mysql
 
-function loadFromMySql(ms){
+function loadFromMySql(ms,callback){
     var output=[];
     var stmt="SELECT transaction_type,transaction_mode,other_party_number,start_time,actual_consumption,consumption_unit,charges_in_bdt FROM history where msisdn=?";
     db.query(stmt,ms, function(err, res){
@@ -50,11 +55,11 @@ function loadFromMySql(ms){
             output.push({'msisdn':msisdn});
             output.push({'records':data});
             //console.log(data);
+            callback(null,output);
             
         } 
 
     });
-    return output;
 
 }
 
