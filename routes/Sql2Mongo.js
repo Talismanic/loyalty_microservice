@@ -18,17 +18,22 @@ mnDB.connect(URL, function(err) {
           if(err)
             console.log(err);
           else{
-              console.log(doc);
+              //console.log(doc);
               //console.log(docs);
              //var hist=JSON.parse(doc);
              for(var key in doc){
                  var val=JSON.stringify(doc[key]);
-
-                var output={};
-                output["msisdn"]=msisdn;
-                output["records"]=val;
-                 console.log(output);
-             }
+                 var output={};
+                 output["msisdn"]=msisdn;
+                 output["records"]=val;
+                 //console.log(output);
+                 collection.insert(output, function(err, res){
+                     if(err)
+                        console.log(err);
+                     else
+                        console.log(res);
+                    });
+                }
 
 /*
              collection.insert(hist, function(err, res){
