@@ -20,7 +20,13 @@ mnDB.connect(URL, function(err) {
           else{
               console.log(doc);
               //console.log(docs);
-             var hist=JSON.parse(doc);
+             //var hist=JSON.parse(doc);
+             for(var key in doc){
+                 var val=doc[key];
+                 console.log(val);
+             }
+
+/*
              collection.insert(hist, function(err, res){
                  if(err)
                     console.log(err);
@@ -30,7 +36,7 @@ mnDB.connect(URL, function(err) {
                 collection.find().toArray(function(err,docs){
                     console.log(docs);
                     return
-                })
+                })*/
             }
         });
  
@@ -60,7 +66,7 @@ function loadFromMySql(ms,callback){
         
             output=JSON.stringify(output);
      //     console.log(output);
-            callback(null,output);
+            callback(null,data);
             
         } 
 
