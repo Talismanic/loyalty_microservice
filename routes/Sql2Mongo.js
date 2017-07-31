@@ -23,7 +23,10 @@ mnDB.connect(URL, function(err) {
              //var hist=JSON.parse(doc);
              for(var key in doc){
                  var val=doc[key];
-                 console.log(val);
+                var output={};
+                output["msisdn"]=msisdn;
+                output["records"]=val;
+                 console.log(output);
              }
 
 /*
@@ -57,11 +60,7 @@ function loadFromMySql(ms,callback){
             throw err;
         else{
             var data=res;
-            var output={};
-            output["msisdn"]=msisdn;
-            output["records"]=data;
-
-            
+           
       //      console.log(data);
         
             output=JSON.stringify(output);
