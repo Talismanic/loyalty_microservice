@@ -22,7 +22,7 @@ mnDB.connect(URL, function(err) {
               //console.log(docs);
              //var hist=JSON.parse(doc);
              for(var key in doc){
-                 var val=JSON.stringify(doc[key]);
+                 var val=doc[key];
                  var output={};
                  output["msisdn"]=msisdn;
                  output["records"]=val;
