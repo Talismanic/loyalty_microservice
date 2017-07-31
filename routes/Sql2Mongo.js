@@ -26,7 +26,7 @@ mnDB.connect(URL, function(err) {
                  var output={};
                  output["msisdn"]=msisdn;
                  output["records"]=val;
-                 //output=JSON.parse(output);
+                 output=JSON.stringify(output);
                  //console.log(output);
                  collection.insert(output, function(err, res){
                      if(err)
