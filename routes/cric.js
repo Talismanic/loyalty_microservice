@@ -138,8 +138,11 @@ request(options_match,function(err,resp,body){
 for(i=0; i<data.matches.length;i++)
 {
     var curTime=new Date();
+    console.log('current time'+curTime);
     var matchTime= data.matches[i].date;
+    console.log('time from api  '+matchTime);
     if(data.matches[i].matchStarted==true || (curTime>=matchTime)){
+        console.log(curTime>=matchTime);
 
     if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
       {
