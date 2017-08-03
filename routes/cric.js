@@ -72,9 +72,6 @@ db.query(sql_ins,ins_data,function(err,result){
     if(err){
         console.log(err);
         console.log(dateTime.create())
-
-
-
     }
         
     else
@@ -90,6 +87,7 @@ db.query(sql_ins,ins_data,function(err,result){
                 for(i=0; i<data.matches.length;i++)
                     {
                         var isStarted=data.matches[i].matchStarted;
+                        var matchTime=data.matches[i].date;
                         console.log(isStarted);
                         if(isStarted==false && isStarted!=undefined){
                             if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
@@ -139,7 +137,10 @@ request(options_match,function(err,resp,body){
     
 for(i=0; i<data.matches.length;i++)
 {
-    if(data.matches[i].matchStarted==true){
+    var curTime=new Date();
+    var matchTime= data.matches[i].date;
+    v
+    if(data.matches[i].matchStarted==true || (curTime>=matchTime)){
 
     if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
       {

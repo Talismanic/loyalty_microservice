@@ -18,16 +18,11 @@ mnDB.connect(URL, function(err) {
           if(err)
             console.log(err);
           else{
-              //console.log(doc);
-              //console.log(docs);
-             //var hist=JSON.parse(doc);
              for(var key in doc){
                  var val=doc[key];
                  var output={};
                  output["msisdn"]=msisdn;
                  output["records"]=val;
-                // output=JSON.stringify(output);
-                 //console.log(output);
                  collection.insert(output, function(err, res){
                      if(err)
                         console.log(err);
@@ -36,17 +31,6 @@ mnDB.connect(URL, function(err) {
                     });
                 }
 
-/*
-             collection.insert(hist, function(err, res){
-                 if(err)
-                    console.log(err);
-                 else
-                    console.log(res);
-                });
-                collection.find().toArray(function(err,docs){
-                    console.log(docs);
-                    return
-                })*/
             }
         });
  
@@ -67,11 +51,7 @@ function loadFromMySql(ms,callback){
             throw err;
         else{
             var data=res;
-           
-      //      console.log(data);
-        
             output=JSON.stringify(output);
-     //     console.log(output);
             callback(null,data);
             
         } 
@@ -83,8 +63,5 @@ function loadFromMySql(ms,callback){
 
 
 
-
-
-//loadFromMySql(msisdn);
 
 //module.exports = router;
