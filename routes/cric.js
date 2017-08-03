@@ -137,7 +137,7 @@ request(options_match,function(err,resp,body){
     
 for(i=0; i<data.matches.length;i++)
 {
-    var curTime=new Date();
+    var curTime=new Date().toISOString;
     console.log('current time'+curTime);
     var matchTime= data.matches[i].date;
     console.log('time from api  '+matchTime);
