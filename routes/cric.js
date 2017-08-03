@@ -139,7 +139,6 @@ for(i=0; i<data.matches.length;i++)
 {
     var curTime=new Date();
     var matchTime= data.matches[i].date;
-    v
     if(data.matches[i].matchStarted==true || (curTime>=matchTime)){
 
     if (data.matches[i]["team-1"]===country || data.matches[i]["team-2"]===country) 
